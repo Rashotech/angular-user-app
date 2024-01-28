@@ -1,0 +1,15 @@
+<app-navbar />
+<div class="container mx-10">
+  <p class="text-2xl">User List</p>
+  <section class="text-gray-600 body-font">
+    <div class="py-6 mx-auto">
+      <div class="flex flex-wrap -m-4">
+        @for (user of users; track $index) {
+        <app-card [user]="user"/>
+        } @empty {
+        <h1>No users yet</h1>
+        }
+      </div>
+    </div>
+  </section>
+</div>
