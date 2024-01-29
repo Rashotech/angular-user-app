@@ -1,16 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IUser } from '../../data/user.interface';
 import { NavbarComponent } from "../navbar/navbar.component";
 import { CardComponent } from "../card/card.component";
-import { USERS } from '../../data/user.data';
+import { UserService } from '../user.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
     selector: 'app-user-list',
     standalone: true,
     templateUrl: './user-list.component.html',
     styleUrl: './user-list.component.css',
-    imports: [NavbarComponent, CardComponent]
+    imports: [NavbarComponent, CardComponent, HttpClientModule]
 })
-export class UserListComponent {
-    users: IUser[] = USERS;
+export class UserListComponent implements OnInit {
+    users: IUser[] = [];
+    loading: boolean = false;
+
+    constructor(private readonly userService: UserService) { }
+
+    ngOnInit() {
+        this.loading = true;
+        this.userService.getUsers().subscribe({
+            next: data => {
+                this.users = data;
+                this.loading = false;
+            },
+            error: error => {
+                console.log(error)
+            },
+            complete: () => console.info("Data was successfully retrieved")
+        });
+    };
 }

@@ -1,2 +1,6 @@
 <app-navbar/>
-<p>user-detail works!</p>
+@if (loading) {
+  <p>loading<p>
+} @else {
+  <app-card [user]="user" />
+}
