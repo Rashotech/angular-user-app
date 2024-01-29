@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { IUser } from '../../data/user.interface';
-import { NavbarComponent } from "../navbar/navbar.component";
 import { CardComponent } from "../card/card.component";
 import { UserService } from '../user.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -10,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
     standalone: true,
     templateUrl: './user-list.component.html',
     styleUrl: './user-list.component.css',
-    imports: [NavbarComponent, CardComponent, HttpClientModule]
+    imports: [CardComponent, HttpClientModule]
 })
 export class UserListComponent implements OnInit {
     users: IUser[] = [];

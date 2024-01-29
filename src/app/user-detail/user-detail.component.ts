@@ -2,7 +2,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { IUser } from '../../data/user.interface';
-import { NavbarComponent } from "../navbar/navbar.component";
 import { UserService } from '../user.service';
 import { CardComponent } from "../card/card.component";
 
@@ -11,7 +10,7 @@ import { CardComponent } from "../card/card.component";
     standalone: true,
     templateUrl: './user-detail.component.html',
     styleUrl: './user-detail.component.css',
-    imports: [NavbarComponent, HttpClientModule, RouterOutlet, CardComponent]
+    imports: [HttpClientModule, RouterOutlet, CardComponent]
 })
 
 export class UserDetailComponent implements OnInit {
