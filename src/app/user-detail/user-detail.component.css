@@ -1,0 +1,66 @@
+.cover-photo {
+    background-image: url("new.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 200px;
+    position: relative;
+  }
+
+  .profile-picture {
+    position: absolute;
+    z-index: 2;
+    top: 150px;
+    left: 80px;
+    background: white;
+    padding: 10px;
+    border-radius: 50%;
+  }
+
+  .profile-picture img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .user-name {
+    margin-top: 80px;
+    padding-left: 120px;
+    border-bottom: 1px solid rgb(214, 212, 212);
+  }
+
+  .contact-sec {
+    border: 1px solid rgb(214, 212, 212);
+    padding-bottom: 300px;
+    padding-top: 50px;
+    padding-left: 20px;
+  }
+
+  .contact-info {
+    padding-top: 50px;
+  }
+
+  .company-info {
+    padding-top: 10px;
+  }
+
+  nav {
+    background-color: black;
+    color: blue;
+    padding: 10px;
+    text-align: right;
+    grid-column: span 2;
+    align-items: center;
+    font-size: large;
+  }
+
+  nav a {
+    color: blue;
+    text-decoration: none;
+    margin: 0 15px;
+  }
