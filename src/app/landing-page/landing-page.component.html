@@ -1,4 +1,44 @@
-<app-navbar/>
-<h1 class="text-3xl font-bold underline">
-  Hello world!
-</h1>
+<main class="lg:max-w-[1103px] mx-auto my-5">
+  <section class="p-3 sm:flex">
+    <div>
+      <img
+        src="../../assets/user.jpeg"
+        class="rounded-md md:max-w-[500px] drop-shadow-sm mb-3 animate-pulse ease-in-out delay-150 duration-300 hover:shadow-lg hover:scale-95"
+      />
+    </div>
+    <div class="sm:px-3 sm:py-[5%] md:px-5 md:py-[7%] lg:py-[10%]">
+      <h3 class="text-xl mb-3">HELLO, I AM</h3>
+      <p class="text-2xl font-bold mb-4">
+        OLUOMACHI MALIK <br />
+        <span class="text-xl font-thin text-pageColor">SOFTWARE ENGINEER</span>
+      </p>
+      <span class="block max-w-[500px] text-slate-500 mb-3 italic"
+        >Lorem ipsum dolor sit amet consectetur Id suspendisse amet diam nulla
+        id. Ut ultrices sed facilisis diam,dorem ipsum dolor sit amet
+        consectetur Id suspendisse amet diam nulla id. Ut ultrices sed facilisis
+        diam</span
+      >
+      <a href="" class="flex">
+        <button
+          class="flex bg-button p-2 rounded-lg text-white hover:px-5 animate-pulse ease-in-out delay-150 duration-300"
+        >
+          <p class="mr-2">Hire me</p>
+          <fa-icon [icon]="faArrowRight"></fa-icon>
+        </button>
+      </a>
+    </div>
+  </section>
+  <section class="p-3 mt-5">
+    <h4 class="font-bold">FOCUS AREAS</h4>
+    <p
+      class="w-[70px] h-[10px] bg-black mb-6 rounded-lg hover:w-[110px] animate-pulse ease-in-out delay-150 duration-300"
+    ></p>
+    <div class="xsmx:flex flex-wrap gap-5 justify-center">
+      @for(specialization of specializations; track $index){
+      <app-focus-card [specialization]="specialization"></app-focus-card>
+      }@empty{
+      <p>No focus areas available.</p>
+      }
+    </div>
+  </section>
+</main>
