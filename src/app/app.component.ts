@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { NavbarComponent } from './navbar/navbar.component';
 import { LandingPageComponent } from "./landing-page/landing-page.component";
 
 @Component({
@@ -7,7 +8,7 @@ import { LandingPageComponent } from "./landing-page/landing-page.component";
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
-    imports: [LandingPageComponent, RouterOutlet]
+    imports: [NavbarComponent, RouterOutlet]
 })
 export class AppComponent {
   title = 'angular-user-app';
