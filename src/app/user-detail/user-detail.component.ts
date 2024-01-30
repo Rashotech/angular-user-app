@@ -1,14 +1,36 @@
-import { Component } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { Component, Input, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NavbarComponent } from "../navbar/navbar.component";
+import { IUser } from '../../data/user.interface';
+import { UserService } from '../user.service';
+import { CardComponent } from "../card/card.component";
 
 @Component({
     selector: 'app-user-detail',
     standalone: true,
     templateUrl: './user-detail.component.html',
     styleUrl: './user-detail.component.css',
-    imports: [NavbarComponent, RouterOutlet]
+    imports: [HttpClientModule, RouterOutlet, CardComponent]
 })
-export class UserDetailComponent {
 
+export class UserDetailComponent implements OnInit {
+    user: IUser | null = null;
+    loading: boolean = false;
+    @Input('id') userId = '';
+
+    constructor(private readonly userService: UserService) { }
+
+    ngOnInit() {
+        this.loading = true;
+        this.userService.getSingleUser(Number(this.userId)).subscribe({
+            next: data => {
+                this.user = data;
+                this.loading = false;
+            },
+            error: error => {
+                console.log(error)
+            },
+            complete: () => console.info("Data was successfully retrieved")
+        });
+    };
 }

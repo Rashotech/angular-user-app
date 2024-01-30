@@ -11,7 +11,7 @@ import { ISpecialization } from '../../data/user.interface';
   standalone: true,
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.css',
-  imports: [NavbarComponent, FontAwesomeModule, FocusCardComponent],
+  imports: [FontAwesomeModule, FocusCardComponent]
 })
 export class LandingPageComponent {
   faArrowRight = faArrowRight;
