@@ -1,3 +1,4 @@
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core"
 export interface IUser {
   id: number
   name: string
@@ -26,4 +27,10 @@ export interface Company {
   name: string
   catchPhrase: string
   bs: string
+}
+
+export interface ISpecialization{
+  icon: IconDefinition;
+  title: string;
+  description: string;
 }
