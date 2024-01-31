@@ -12,11 +12,11 @@
   <section class="about-section">
     <div class="user-name">
       <h3>{{ user?.name }}</h3>
-      <p>{{ user?.address }}</p>
+      <p>{{ user?.address?.city }}</p>
       <p> {{ user?.website }}</p>
     </div>
     <div class="company-info">
-      <strong>Company:</strong> {{ user?.company }}
+      <strong>Company:</strong> {{ user?.company?.name }}
       <p>Software Engineer with about 4 years experience in different programming languages.</p>
     </div>
   </section>
@@ -28,7 +28,7 @@
  
     <div class="contact-info">  
       <h2>Contact Information</h2>
-      <p>{{ user?.address }}</p>
+      <p>{{ user?.address?.street }}</p>
       <p>{{ user?.email }}</p>
       <p>{{ user?.phone }}</p>
     </div>
