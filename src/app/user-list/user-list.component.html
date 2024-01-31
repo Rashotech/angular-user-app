@@ -6,7 +6,11 @@
         @if (loading) {
         <p>loading</p>
         } @else { @for (user of users; track $index) {
-        <app-card [user]="user" />
+        @defer(on timer(3000ms); prefetch on idle){
+          <app-card [user]="user" />
+        }@placeholder(minimum 3000ms) {
+          <app-cardplaceholder />
+        }
         } @empty {
         <h1>No users yet</h1>
         } }
