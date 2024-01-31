@@ -1,0 +1,62 @@
+
+.search {
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.form-header {
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.search input {
+    width: 40%;
+    padding: 10px;
+    border: 1px solid rgb(201, 195, 195);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    margin-right: 10px;
+}
+
+
+
+button {
+    margin-left: 22px;
+    margin-bottom: 40px;
+    background-color: rgb(9, 61, 129);
+    padding: 10px 8px !important;
+    color: white;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border: none;
+    font-family: "Poppins", sans-serif;
+    font-weight: 250;
+    font-style: normal;
+    width: 7rem;
+    font-size: 1em !important;
+    transition: ease 1s;
+    -webkit-transition: ease 1s;
+    -moz-transition: ease 1s;
+    -ms-transition: ease 1s;
+    -o-transition: ease 1s;
+}
+
+button:hover {
+    background-color: rgb(60, 184, 195);
+    color: rgb(9, 61, 129);
+    cursor: pointer;
+    border: 1px solid rgb(9, 61, 129);
+    transform: translateX(5px);
+    -webkit-transform: translateX(5px);
+    -moz-transform: translateX(5px);
+    -ms-transform: translateX(5px);
+    -o-transform: translateX(5px);
+}
+
+

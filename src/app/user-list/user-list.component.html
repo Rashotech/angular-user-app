@@ -1,10 +1,18 @@
-<div class="container mx-10">
-  <p class="text-2xl">User List</p>
-  <section class="text-gray-600 body-font">
-    <div class="py-6 container mx-auto">
-      <div class="flex flex-wrap -m-4">
+<div class="w-full">
+  
+  
+  <section class="text-gray-600 w-full body-font">
+    <div class="w-11/12 mx-auto">
+      <div class="md:w-3/4 mb-10 mx-auto">
+        <div class="">
+          <p class="text-4xl mt-10 text-center md:text-start font-medium mb-10">User List</p>
+          <app-search></app-search>
+        </div>
+      </div>
+      
+      <div class="flex justify-center flex-wrap">
         @if (loading) {
-        <p>loading</p>
+        <p class="text-grey-900 text-4xl mt-10 font-medium animate-pulse" >Loading ...</p>
         } @else { @for (user of users; track $index) {
         @defer(on timer(3000ms); prefetch on idle){
           <app-card [user]="user" />
