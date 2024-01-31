@@ -1,66 +1,97 @@
-.cover-photo {
-    background-image: url("../../assets/background.jpeg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 200px;
-    position: relative;
-  }
+#user-area{
+  color: black;
+}
 
-  .profile-picture {
-    position: absolute;
-    z-index: 2;
-    top: 150px;
-    left: 80px;
-    background: white;
-    padding: 10px;
-    border-radius: 50%;
-  }
+.contain-user-photo{
+  position: relative;
+}
 
-  .profile-picture img {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-  }
+.cover-photo{
+  min-height: 200px;
+}
 
-  .container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
+.cover-photo img{
+  width:100%;
+  height: 200px;
+}
 
-  .user-name {
-    margin-top: 80px;
-    padding-left: 120px;
-    border-bottom: 1px solid rgb(214, 212, 212);
-  }
+.profile-picture{
+  position: absolute;
+  top: 90px;
+  z-index: 2;
+  left: 80px;
+  border: 5px solid rgb(9, 61, 129);
+  background: rgb(9, 61, 129);
+  border-radius: 50%;
+}
 
-  .contact-sec {
-    border: 1px solid rgb(214, 212, 212);
-    padding-bottom: 300px;
-    padding-top: 50px;
-    padding-left: 20px;
-  }
+.profile-picture img{
+  height:150px;
+  border-radius: 50%;
+  width:130px;
+}
+#user-details{
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.company-details{
+  padding-left: 50px;
+  padding-top: 40px;
+ 
+}
+.Company{
+  display: flex;
+}
+.company-details img{
+  width:60px;
+  border-radius: 5px;
+  height: 80px;
+  -webkit-border-radius: 5px;
+}
+.Details{
+  padding-left: 35px;
+  padding-top: 60px;
+  border: 1px solid grey;
+}
+.About{
+  width: 70%;
+}
+.Contact{
+  padding-top: 40px;
+}
 
-  .contact-info {
-    padding-top: 50px;
-  }
+h4 h5 h6{
+  font-weight: 500;
+  color: blue;
+  font-size: large;
+}
+.first-details{
+  border: 1px solid rgb(218,210,210);
+}
+.user-first{
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgb(218, 210, 210);
+  padding-top: 80px;
+  padding-left: 125px;
+}
 
-  .company-info {
-    padding-top: 10px;
-  }
+@media screen and (max-width:400px){
 
-  nav {
-    background-color: black;
-    color: blue;
-    padding: 10px;
-    text-align: right;
-    grid-column: span 2;
-    align-items: center;
-    font-size: large;
-  }
+.profile-picture{
+  position: absolute;
+  top: 90px;
+  z-index: 2;
+  left: 30px;
+  border: 5px solid rgb(9, 61, 129);
+  background: rgb(9, 61, 129);
+  border-radius: 50%;
+}
 
-  nav a {
-    color: blue;
-    text-decoration: none;
-    margin: 0 15px;
-  }
+#user-details{
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+  
+}
