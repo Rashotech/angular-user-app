@@ -11,11 +11,13 @@
 <div class="container">
   <section class="about-section">
     <div class="user-name">
-      <h3>Favour Good</h3>
-      <p>adddd</p>
+      <h3>{{ user?.name }}</h3>
+      <p>{{ user?.address }}</p>
+      <p> {{ user?.website }}</p>
     </div>
     <div class="company-info">
-      <strong>Company:</strong> First Academy, Iganmu
+      <strong>Company:</strong> {{ user?.company }}
+      <p>Software Engineer with about 4 years experience in different programming languages.</p>
     </div>
   </section>
  
@@ -26,9 +28,9 @@
  
     <div class="contact-info">  
       <h2>Contact Information</h2>
-      <p>No 7 Freedom Way, Surulere Lagos</p>
-      <p>dayojohn.com</p>
-      <p>+2347000885671</p>
+      <p>{{ user?.address }}</p>
+      <p>{{ user?.email }}</p>
+      <p>{{ user?.phone }}</p>
     </div>
   </section>
 </div>
