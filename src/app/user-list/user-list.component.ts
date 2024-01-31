@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IUser } from '../../data/user.interface';
 import { CardComponent } from "../card/card.component";
+import { CardplaceholderComponent } from '../cardplaceholder/cardplaceholder.component';
 import { UserService } from '../user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchBoxComponent } from "../search-box/search-box.component";
@@ -10,7 +11,7 @@ import { SearchBoxComponent } from "../search-box/search-box.component";
     standalone: true,
     templateUrl: './user-list.component.html',
     styleUrl: './user-list.component.css',
-    imports: [CardComponent, HttpClientModule, SearchBoxComponent]
+    imports: [CardComponent, HttpClientModule, CardplaceholderComponent, SearchBoxComponent]
 })
 export class UserListComponent implements OnInit {
     users: IUser[] = [];
