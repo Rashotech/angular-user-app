@@ -8,5 +8,6 @@ export const routes: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'users', component: UserListComponent },
   { path: 'user/:id', component: UserDetailComponent },
+  { path: '404', component: ErrorComponent },
   { path: '**', component: ErrorComponent },
 ];

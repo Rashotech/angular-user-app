@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { IUser } from '../../data/user.interface';
 import { UserService } from '../user.service';
 import { CardComponent } from "../card/card.component";
@@ -18,7 +18,10 @@ export class UserDetailComponent implements OnInit {
     loading: boolean = false;
     @Input('id') userId = '';
 
-    constructor(private readonly userService: UserService) { }
+    constructor(
+        private readonly userService: UserService,
+        private router: Router
+    ) { }
 
     ngOnInit() {
         this.loading = true;
@@ -28,7 +31,8 @@ export class UserDetailComponent implements OnInit {
                 this.loading = false;
             },
             error: error => {
-                console.log(error)
+                console.log(error);
+                return this.router.navigate(['/404'], { skipLocationChange: true });
             },
             complete: () => console.info("Data was successfully retrieved")
         });
