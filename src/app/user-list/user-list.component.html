@@ -2,12 +2,12 @@
   <section class="text-gray-600 w-full body-font">
     <div class="w-11/12 mx-auto">
       <p class="text-4xl mt-10 text-center md:text-start font-medium mb-10">User List</p>
-      <app-search></app-search>
+      <app-search [(searchTerm)]="searchTerm"></app-search>
       
       <div class="flex justify-center flex-wrap">
         @if (loading) {
         <p class="text-grey-900 text-4xl mt-10 font-medium animate-pulse" >Loading ...</p>
-        } @else { @for (user of users; track $index) {
+        } @else { @for (user of filterUsers(); track $index) {
         @defer(on timer(3000ms); prefetch on idle){
           <app-card [user]="user" />
         }@placeholder(minimum 3000ms) {
