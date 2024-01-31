@@ -19,6 +19,10 @@ export class UserListComponent implements OnInit {
 
     constructor(private readonly userService: UserService) { }
 
+    filterUsers() {
+        return this.users.filter(user => user.name.toLowerCase().includes(this.searchTerm.toLowerCase()))
+    }
+
     ngOnInit() {
         this.loading = true;
         this.userService.getUsers().subscribe({

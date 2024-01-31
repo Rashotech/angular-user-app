@@ -6,7 +6,7 @@
       <div class="flex flex-wrap -m-4">
         @if (loading) {
         <p>loading</p>
-        } @else { @for (user of users; track $index) {
+        } @else { @for (user of filterUsers(); track $index) {
         <app-card [user]="user" />
         } @empty {
         <h1>No users yet</h1>
