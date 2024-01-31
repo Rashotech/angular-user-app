@@ -5,8 +5,12 @@
       <div class="flex flex-wrap -m-4">
         @if (loading) {
         <p>loading</p>
-        } @else { @for (user of filterUsers(); track $index) {
-        <app-card [user]="user" />
+        } @else { @for (user of users; track $index) {
+        @defer(on timer(3000ms); prefetch on idle){
+          <app-card [user]="user" />
+        }@placeholder(minimum 3000ms) {
+          <app-cardplaceholder />
+        }
         } @empty {
         <h1>No users yet</h1>
         } }
