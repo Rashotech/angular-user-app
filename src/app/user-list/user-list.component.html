@@ -4,7 +4,7 @@
       <p class="text-4xl mt-10 text-center md:text-start font-medium mb-10">User List</p>
       <app-search [(searchTerm)]="searchTerm"></app-search>
       
-      <div class="flex justify-center flex-wrap">
+      <div class="flex mt-10 justify-center flex-wrap">
         @if (loading) {
         <p class="text-grey-900 text-4xl mt-10 font-medium animate-pulse" >Loading ...</p>
         } @else { @for (user of filterUsers(); track $index) {
