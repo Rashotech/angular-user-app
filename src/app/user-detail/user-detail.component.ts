@@ -12,7 +12,7 @@ import { faLink } from '@fortawesome/free-solid-svg-icons';
   standalone: true,
   templateUrl: './user-detail.component.html',
   styleUrl: './user-detail.component.css',
-  imports: [HttpClientModule, RouterOutlet, FontAwesomeModule, DetailsSkeletonComponent],
+  imports: [HttpClientModule, FontAwesomeModule, DetailsSkeletonComponent, RouterOutlet],
 })
 export class UserDetailComponent implements OnInit {
   user: IUser | null = null;
