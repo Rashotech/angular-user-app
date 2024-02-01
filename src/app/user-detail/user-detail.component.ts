@@ -1,11 +1,12 @@
 import { HttpClientModule } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { IUser } from '../../data/user.interface';
 import { UserService } from '../user.service';
 import { DetailsSkeletonComponent } from '../details-skeleton/details-skeleton.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faLink } from '@fortawesome/free-solid-svg-icons';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-user-detail',
@@ -14,9 +15,11 @@ import { faLink } from '@fortawesome/free-solid-svg-icons';
   styleUrl: './user-detail.component.css',
   imports: [HttpClientModule, FontAwesomeModule, DetailsSkeletonComponent, RouterOutlet],
 })
-export class UserDetailComponent implements OnInit {
+export class UserDetailComponent implements OnInit, OnDestroy {
   user: IUser | null = null;
   loading: boolean = false;
+  subscriber!: Subscription;
+  searchTerm = '';
   faLink = faLink;
   @Input('id') userId = '';
 
@@ -25,19 +28,16 @@ export class UserDetailComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loading = true;
-    this.userService.getSingleUser(Number(this.userId)).subscribe({
-      next: (data) => {
-            this.user = data;
-            console.log(this.user);
-        this.loading = false;
-      },
-      error: (error) => {
-        console.log(error);
-        return this.router.navigate(['/404'], { skipLocationChange: true });
-      },
-      complete: () => console.info('Data was successfully retrieved'),
-    });
+    this.subscriber = this.userService.getSingleUser(Number(this.userId)).subscribe({
+      next: (user) => this.user = user,
+      error: () => this.router.navigate(['/404'], { skipLocationChange: true }),
+      complete: () => this.loading = false
+    })
+  }
+
+  ngOnDestroy(): void {
+    this.subscriber.unsubscribe();
   }
 }

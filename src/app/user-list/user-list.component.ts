@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { IUser } from '../../data/user.interface';
 import { CardComponent } from '../card/card.component';
 import { CardplaceholderComponent } from '../cardplaceholder/cardplaceholder.component';
@@ -6,6 +6,7 @@ import { UserService } from '../user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchBoxComponent } from '../search-box/search-box.component';
 import { SearchComponent } from "../search/search.component";
+import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-user-list',
@@ -20,30 +21,38 @@ import { SearchComponent } from "../search/search.component";
         SearchComponent
     ]
 })
-export class UserListComponent implements OnInit {
+export class UserListComponent implements OnInit, OnDestroy {
   users: IUser[] = [];
   loading: boolean = false;
+  subscriber!: Subscription;
   searchTerm = '';
+  error: string | null = null;
+  searchFilters: string[] = ["name"];
 
   constructor(private readonly userService: UserService) {}
 
-  filterUsers() {
-    return this.users.filter((user) =>
-      user.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-    );
+  filterUsers(): IUser[] {
+    const lowercaseSearchTerm = this.searchTerm.toLowerCase();
+    return this.users.filter(user => this.userMatchesSearch(user, lowercaseSearchTerm));
   }
-
-  ngOnInit() {
-    this.loading = true;
-    this.userService.getUsers().subscribe({
-      next: (data) => {
-        this.users = data;
-        this.loading = false;
-      },
-      error: (error) => {
-        console.log(error);
-      },
-      complete: () => console.info('Data was successfully retrieved'),
+  
+  private userMatchesSearch(user: IUser, lowercaseSearchTerm: string): boolean {
+    return this.searchFilters.some(filter => {
+      const userInfo = user[filter as 'email' | 'name' | 'username'];  
+      return userInfo.toLowerCase().includes(lowercaseSearchTerm);
     });
   }
-}
+
+  ngOnInit(): void {
+    this.loading = true;
+    this.subscriber = this.userService.getUsers().subscribe({
+      next: (users) => this.users = users,
+      error: () => this.error = "An error occurred, please try again",
+      complete: () => this.loading = false
+    })
+  }
+
+  ngOnDestroy(): void {
+    this.subscriber.unsubscribe();
+  }
+} 
