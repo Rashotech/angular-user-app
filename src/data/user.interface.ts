@@ -34,3 +34,12 @@ export interface ISpecialization{
   title: string;
   description: string;
 }
+
+export interface IMember{
+  name: string;
+  title: string;
+  summary: string;
+  linkedIn: string;
+  github: string;
+  picture: any;
+}

@@ -1,0 +1,38 @@
+    <section class="max-w-[300px] p-3">
+      <div class="">
+        <img
+          [src]="teamMember.picture"
+          class="h-[250px] rounded-md drop-shadow-sm mb-3 animate-pulse ease-in-out delay-150 duration-300 hover:shadow-lg hover:scale-95"
+        />
+      </div>
+      <div class="sm:px-3 sm:py-[5%] md:px-5 md:py-[7%] lg:py-[10%] lg:text-start">
+        <h3 class="text-xl mb-3">HELLO, I AM</h3>
+        <p class="text-2xl font-bold mb-4">
+          {{teamMember.name}} <br />
+          <span class="text-xl font-thin text-pageColor"
+            >{{teamMember.title}}</span
+          >
+        </p>
+        <span class="block max-w-[500px] text-slate-500 mb-3 italic xsm:text-start sm:text-start lg:text-start"
+          >{{teamMember.summary}}</span
+        >
+        <div class="flex">
+          <a [href]="teamMember.github" target="_blank" class="flex mr-2 bg-button rounded-lg text-white hover:bg-white hover:text-button">
+           <button
+             class="flex p-2 rounded-lg hover:px-5 animate-pulse ease-in-out delay-150 duration-300"
+           >
+           <fa-icon [icon]="faLink"></fa-icon>
+             <p class="mr-2">Projects</p>
+           </button>
+         </a>
+         <a [href]="teamMember.linkedIn" target="_blank" class="flex bg-button rounded-lg text-white hover:bg-white hover:text-button">
+           <button
+             class="flex p-2 rounded-lg hover:px-5 animate-pulse ease-in-out delay-150 duration-300"
+           >
+             <p class="mr-2">Hire me</p>
+             <fa-icon [icon]="faArrowRight"></fa-icon>
+           </button>
+         </a>
+        </div>
+      </div>
+    </section>
