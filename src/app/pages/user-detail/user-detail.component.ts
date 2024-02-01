@@ -1,9 +1,9 @@
 import { HttpClientModule } from '@angular/common/http';
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { IUser } from '../../models/user.model';
 import { Router, RouterOutlet } from '@angular/router';
-import { IUser } from '../../data/user.interface';
-import { UserService } from '../user.service';
-import { DetailsSkeletonComponent } from '../details-skeleton/details-skeleton.component';
+import { UserService } from '../../services/user/user.service';
+import { DetailsSkeletonComponent } from '../../components/details-skeleton/details-skeleton.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faLink } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';

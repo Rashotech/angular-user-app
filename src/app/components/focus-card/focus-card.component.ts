@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ISpecialization } from '../../data/user.interface';
+import { ISpecialization } from '../../../data/user.interface';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({

@@ -1,13 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { IUser } from '../../data/user.interface';
-import { CardComponent } from '../card/card.component';
-import { CardplaceholderComponent } from '../cardplaceholder/cardplaceholder.component';
-import { UserService } from '../user.service';
+import { IUser } from '../../models/user.model';
+import { CardComponent } from '../../components/card/card.component';
+import { CardplaceholderComponent } from '../../components/cardplaceholder/cardplaceholder.component';
+import { UserService } from '../../services/user/user.service';
 import { HttpClientModule } from '@angular/common/http';
-import { SearchBoxComponent } from '../search-box/search-box.component';
-import { SearchComponent } from "../search/search.component";
+import { SearchComponent } from "../../components/search/search.component";
 import { Subscription } from 'rxjs';
-import { ISearch } from '../models/search.model';
+import { ISearch } from '../../models/search.model';
 
 @Component({
     selector: 'app-user-list',
@@ -18,7 +17,6 @@ import { ISearch } from '../models/search.model';
         CardComponent,
         HttpClientModule,
         CardplaceholderComponent,
-        SearchBoxComponent,
         SearchComponent
     ]
 })

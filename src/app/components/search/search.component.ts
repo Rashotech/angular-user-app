@@ -3,8 +3,8 @@ import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faSliders } from '@fortawesome/free-solid-svg-icons';
 import { FilterComponent } from "../filter/filter.component";
-import { Filter, IFilter } from '../models/filter.model';
-import { ISearch } from '../models/search.model';
+import { Filter, IFilter } from '../../models/filter.model';
+import { ISearch } from '../../models/search.model';
 
 @Component({
     selector: 'app-search',

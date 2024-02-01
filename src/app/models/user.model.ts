@@ -1,7 +1,7 @@
 import { Address } from "./address.model";
 import { Company } from "./company.model";
 
-export interface User {
+export interface IUser {
     id: number;
     name: string;
     email: string;

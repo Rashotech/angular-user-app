@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { IUser } from '../../data/user.interface';
+import { IUser } from '../../models/user.model';
 
 @Component({
   selector: 'app-card',

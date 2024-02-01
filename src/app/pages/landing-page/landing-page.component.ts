@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import { HeroSectionComponent } from '../hero-section/hero-section.component';
-import { FocusCardComponent } from '../focus-card/focus-card.component';
-import { SPECIALIZATIONS } from '../../data/user.data';
-import { ISpecialization } from '../../data/user.interface';
-import { TEAMMEMBERS } from '../../data/user.data';
-import { IMember } from '../../data/user.interface';
-import { TeamComponent } from '../team/team.component';
+import { HeroSectionComponent } from '../../components/hero-section/hero-section.component';
+import { FocusCardComponent } from '../../components/focus-card/focus-card.component';
+import { SPECIALIZATIONS } from '../../../data/user.data';
+import { ISpecialization } from '../../../data/user.interface';
+import { TEAMMEMBERS } from '../../../data/user.data';
+import { IMember } from '../../../data/user.interface';
+import { TeamComponent } from '../../components/team/team.component';
 
 @Component({
   selector: 'app-landing-page',

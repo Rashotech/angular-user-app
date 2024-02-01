@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Filter, IFilter } from '../models/filter.model';
+import { Filter, IFilter } from '../../models/filter.model';
 
 @Component({
   selector: 'app-filter',

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { LandingPageComponent } from "./landing-page/landing-page.component";
-import { NavbarComponent } from "./navbar/navbar.component";
+import { LandingPageComponent } from "./pages/landing-page/landing-page.component";
+import { NavbarComponent } from "./components/navbar/navbar.component";
 
 @Component({
     selector: 'app-root',
