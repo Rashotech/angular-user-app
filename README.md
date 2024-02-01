@@ -1,27 +1,36 @@
-# AngularUserApp
+## Angular Project Overview
+Welcome to the Angular UserApp Project! This project was generated with Angular CLI version 17.1.0. It is designed to create a dynamic web application with two main components: a personalized landing page and a user data page.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.0.
+### Project Objectives
 
-## Development server
+*Landing Page:*
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+The landing page serves as a personal introduction platform. Angular components are utilized to structure and organize content, with a focus on incorporating creative and personalized design elements for a unique user experience.
 
-## Code scaffolding
+*User List and User Details Page:*
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The user page fetches and displays user information from an external API. Angular's HTTP Client is leveraged for seamless interaction with the API, and Angular routing is implemented to facilitate navigation between the landing page and the user page.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Getting Started
 
-## Running unit tests
+Follow these steps to set up and run the project on your local machine:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. *Clone the Repository:*
+   ```bash
+   git clone https://github.com/Rashotech/angular-user-app.git
 
-## Running end-to-end tests
+2. *Install Dependencies:*
+    Navigate to the project directory and install the necessary dependencies using commands below
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+    ```bash
+    cd angular-project
+    npm install
+3. *Run the Application:*
+    Start the Angular development server to run the application locally using command below
+    
+    ```bash
+    npm start
+    ```
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+    Open your browser and visit http://localhost:4200/ to view the Angular project.
