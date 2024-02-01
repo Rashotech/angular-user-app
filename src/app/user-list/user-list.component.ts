@@ -5,18 +5,20 @@ import { CardplaceholderComponent } from '../cardplaceholder/cardplaceholder.com
 import { UserService } from '../user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchBoxComponent } from '../search-box/search-box.component';
+import { SearchComponent } from "../search/search.component";
 
 @Component({
-  selector: 'app-user-list',
-  standalone: true,
-  templateUrl: './user-list.component.html',
-  styleUrl: './user-list.component.css',
-  imports: [
-    CardComponent,
-    HttpClientModule,
-    CardplaceholderComponent,
-    SearchBoxComponent,
-  ],
+    selector: 'app-user-list',
+    standalone: true,
+    templateUrl: './user-list.component.html',
+    styleUrl: './user-list.component.css',
+    imports: [
+        CardComponent,
+        HttpClientModule,
+        CardplaceholderComponent,
+        SearchBoxComponent,
+        SearchComponent
+    ]
 })
 export class UserListComponent implements OnInit {
   users: IUser[] = [];
