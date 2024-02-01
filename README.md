@@ -1,27 +1,58 @@
-# AngularUserApp
+## Angular Project Overview
+Welcome to the Angular UserApp Project! This project was generated with Angular CLI version 17.1.0. It is designed to create a dynamic web application with two main components: a personalized landing page and a user data page.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.0.
+### Project Objectives
 
-## Development server
+## Landing Page:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+The landing page serves as a personal introduction platform. Angular components are utilized to structure and organize content, with a focus on incorporating creative and personalized design elements for a unique user experience.
 
-## Code scaffolding
+## User List and User Details Page:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The user page fetches and displays user information from an external API. Angular's HTTP Client is leveraged for seamless interaction with the API, and Angular routing is implemented to facilitate navigation between the landing page and the user page.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Getting Started
 
-## Running unit tests
+#### Clone the Repository:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Begin by cloning this repository using below command.
 
-## Running end-to-end tests
+git clone https://github.com/Rashotech/angular-user-app.git
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Install Dependencies:
 
-## Further help
+Navigate to the project directory and install the necessary dependencies using below commands.
+cd angular-project
+npm install
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Run the Application:
+
+Start the Angular development server to run the application locally using below command.
+ng serve
+
+Open your browser and visit http://localhost:4200/ to view the Angular project.
+
+Project Structure
+
+angular-user-app/
+|-- src/
+|   |-- app/
+|       |-- landing-page/
+|       |   |-- landing-page.component.html
+|       |   |-- landing-page.component.scss
+|       |   |-- landing-page.component.ts
+|       |
+|       |-- user-data/
+|       |   |-- user-data.component.html
+|       |   |-- user-data.component.scss
+|       |   |-- user-data.component.ts
+|       |
+|       |-- app-routing.module.ts
+|       |-- app.component.html
+|       |-- app.component.scss
+|       |-- app.component.ts
+|       |-- app.module.ts
+|
+|-- ...
+|-- (Other project files and configurations)
