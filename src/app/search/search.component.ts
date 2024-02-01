@@ -2,53 +2,59 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faSliders } from '@fortawesome/free-solid-svg-icons';
-
-interface IFilter {
-  name: string;
-  type: string;
-}
+import { FilterComponent } from "../filter/filter.component";
+import { Filter, IFilter } from '../models/filter.model';
+import { ISearch } from '../models/search.model';
 
 @Component({
-  selector: 'app-search',
-  standalone: true,
-  imports: [FontAwesomeModule, FormsModule],
-  templateUrl: './search.component.html',
-  styleUrl: './search.component.css'
+    selector: 'app-search',
+    standalone: true,
+    templateUrl: './search.component.html',
+    styleUrl: './search.component.css',
+    imports: [FontAwesomeModule, FormsModule, FilterComponent] 
 })
 export class SearchComponent {
   faf = faSliders;
-  isShowFilterOption: boolean;;
-  filterOptions: IFilter[];
+  isFilterButtonVisible: boolean = false;
+  filters: IFilter[] =  [
+    {
+      name: Filter.NAME,
+      checked: true
+    },
+    {
+      name: Filter.EMAIL,
+      checked: false
+    },
+    {
+      name: Filter.USERNAME,
+      checked: false
+    },
+  ];
   
   @Input({ required: true})
   searchTerm!: string;
 
   @Output()
-  searchTermChange: EventEmitter<string> = new EventEmitter();
-
-  constructor() {
-    this.filterOptions =  [
-      {
-        name: "Name",
-        type: "name"
-      },
-      {
-        name: "Email",
-        type: "email"
-      },
-      {
-        name: "Address",
-        type: "address"
-      },
-    ];
-    this.isShowFilterOption = false;
-  }
+  searchTermChange: EventEmitter<ISearch> = new EventEmitter();
+    
+  toggleFilterButtonVisiblity() {  
+    this.isFilterButtonVisible = !this.isFilterButtonVisible;   
+  } 
 
   handleChange(value: string) {
-    this.searchTermChange.emit(value);
+    const filters = this.getActiveFilters();
+    this.searchTermChange.emit({ value, filters });
   }
-    
-  toggleDisplayDivIf() {  
-    this.isShowFilterOption = !this.isShowFilterOption;  
-  } 
+  
+  handleFilterChange(newFilter: IFilter) {
+    const index = this.filters.findIndex(filter => filter.name === newFilter.name);
+    if (index !== -1) this.filters[index] = newFilter;
+    const activeFilters = this.getActiveFilters();
+    this.searchTermChange.emit({ value: this.searchTerm, filters: activeFilters });
+  }
+
+  private getActiveFilters() {
+    const activeFilters = this.filters.filter(filter => filter.checked).map(filter => filter.name);
+    return activeFilters.length > 0 ? activeFilters : [Filter.NAME];
+  }
 }

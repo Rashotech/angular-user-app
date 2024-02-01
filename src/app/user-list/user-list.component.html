@@ -2,7 +2,7 @@
   <section class="text-gray-600 w-full body-font">
     <div class="w-11/12 mx-auto">
       <p class="text-4xl mt-10 text-center md:text-start font-medium mb-10">User List</p>
-      <app-search [(searchTerm)]="searchTerm"></app-search>
+      <app-search [searchTerm]="searchTerm" (searchTermChange)="handleSearchChange($event)"></app-search>
       
       <div class="flex mt-10 justify-center flex-wrap">
         @if (loading) {

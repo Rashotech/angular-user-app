@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SearchBoxComponent } from '../search-box/search-box.component';
 import { SearchComponent } from "../search/search.component";
 import { Subscription } from 'rxjs';
+import { ISearch } from '../models/search.model';
 
 @Component({
     selector: 'app-user-list',
@@ -34,6 +35,11 @@ export class UserListComponent implements OnInit, OnDestroy {
   filterUsers(): IUser[] {
     const lowercaseSearchTerm = this.searchTerm.toLowerCase();
     return this.users.filter(user => this.userMatchesSearch(user, lowercaseSearchTerm));
+  }
+
+  handleSearchChange(search: ISearch) {
+    this.searchTerm = search.value;
+    this.searchFilters = search.filters;
   }
   
   private userMatchesSearch(user: IUser, lowercaseSearchTerm: string): boolean {

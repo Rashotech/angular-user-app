@@ -1,0 +1,10 @@
+<div class="flex items-center justify-start gap-x-1">
+  <input
+    type="checkbox"
+    [id]="name"
+    [name]="name"
+    [checked]="checked"
+    (change)="handleChange($event)"
+  />
+  <label class="capitalize">{{ name }}</label>
+</div>
